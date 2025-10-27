@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - LIE</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=arrow_back" />
+
+    <style>
+        /* ======== ESTILO GERAL ======== */
+        body {
+            background-color: #ffd445;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        /* Container principal da página */
+        #aula-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: #fff;
+            border-radius: 8px;
+        }
+
+        /* icone de voltar */
+        .material-symbols-outlined {
+          font-variation-settings:
+          'FILL' 0,
+          'wght' 400,
+          'GRAD' 0,
+          'opsz' 24
+        }
+
+        /* Ajusta imagens de topo de cartões */
+        .card-img-top {
+            max-height: 150px;
+            object-fit: cover;
+        }
+
+        /* Cor dos placeholders de inputs */
+        input::placeholder,
+        textarea::placeholder {
+            color: #E0CCBA;
+        }
+
+        textarea {
+            resize: none;
+        }
+
+        /* Navbar personalizada */
+        .custom-navbar {
+            background-color: #f5e9dc;
+            padding: 10px 15px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .navbar-title {
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        /* ======== ESTILO PARA TELAS MAIORES ======== */
+        @media (min-width: 768px) {
+            #aula-container {
+                margin-top: 40px;
+                padding: 20px;
+            }
+
+            .navbar-title {
+                font-size: 18px;
+            }
+
+            .card-title {
+                font-size: 20px;
+            }
+
+            .card-subtitle {
+                font-size: 14px;
+            }
+
+            .input-group input {
+                background-color: #ba4d6c;
+                font-size: 16px;
+            }
+
+            textarea {
+                font-size: 15px;
+            }
+        }
+
+        /* ======== ESTILO DOS COMENTÁRIOS ======== */
+        .comentario {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .usuario {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        /* Avatar genérico */
+        .avatar {
+            width: 40px;
+            height: 40px;
+            background-color: #ccc;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .info {
+            font-size: 14px;
+        }
+
+        .nome {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .data {
+            font-size: 12px;
+            color: #999;
+        }
+
+        .texto {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        /* Container dos botões de ação (curtir e responder) */
+        .acoes {
+            display: flex;
+            justify-content: flex-start;
+        }
+
+        /* Botões de curtir e responder */
+        .curtir,
+        .responder {
+            background-color: transparent; /* Fundo transparente */
+            border: none;                 /* Sem borda */
+            color: #5c5c5c;               /* Azul padrão */
+            font-size: 18px;
+            cursor: pointer;
+            margin-right: 15px;
+            transition: color 0.2s;       /* Transição suave na cor */
+        }
+
+        /* Quando o botão curtir está ativado */
+        .curtir.curtido {
+            color: red; /* Fica vermelho */
+        }
+
+        .curtir:hover,
+        .responder:hover {
+            text-decoration: underline;
+        }
+
+        /* Inputs do campo de dúvidas */
+        .input-group input {
+            background-color: #fff;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ======== NAVBAR SUPERIOR ======== -->
+    <nav class="navbar navbar-light custom-navbar">
+    <div class="container-fluid">
+        <a href="home.html" class="text-decoration-none text-dark">
+        <span class="material-symbols-outlined">arrow_back  02. Aula </span>
+        </a>
+    </div>
+    </nav>
+
+
+    <!-- ======== CONTEÚDO PRINCIPAL ======== -->
+    <div class="container mt-3 p-2" id="aula-container">
+        <div class="card bg-warning-subtle p-3 shadow-sm">
+            <hr>
+
+            <!-- Vídeo incorporado do YouTube (pode ser substituído por outro link se desejar) -->
+            <center>
+                <iframe width="1100" height="560" src="https://www.youtube.com/embed/wphN0JdaMKo?si=7IRjMoB5tqEpQq2C" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </center>
+            <hr>
+
+            <div class="card-body ">
+                <!-- Título e subtítulo da aula -->
+                <h5 class="card-title fw-semibold">Comprei um violão, e agora? | Comece por aqui. </h5>
+                <p class="card-subtitle text-muted small">Material de estudo</p>
+
+                <!-- Campo de dúvidas com botão de envio (sem funcionalidade real ainda) -->
+                <div class="input-group mt-3">
+                    <input type="text" class="form-control bg-light border-0" placeholder="Digite sua dúvida..." />
+                    <button class="btn btn-danger" type="button"><i class="bi bi-image">Enviar</i></button>
+                </div>
+
+                <!-- Um exemplo de comentário abaixo do vídeo -->
+                <div class="comentario">
+                    <div class="usuario">
+                        <div class="avatar"></div>
+                        <div class="info">
+                            <span class="nome">Emanuel Isaac Fernandes</span>
+                            <span class="data">- 2 Dias Atrás</span>
+                        </div>
+                    </div>
+
+                    <div class="texto">
+                      <h6>Indico de olhos fechados! </h6>
+                      Um lugar excelente para aprender e aprimorar qualquer instrumento ...
+                    </div>
+
+                    <div class="acoes">
+                        <!-- Botão curtir com coração -->
+                        <button class="curtir">❤</button>
+                        <!-- Botão responder (poderia abrir uma caixa de texto futuramente) -->
+                        <button class="responder">Responder</button>
+                    </div>
+                </div>
+            </div>
+                <!-- Um exemplo de comentário abaixo do vídeo -->
+                <div class="comentario">
+                    <div class="usuario">
+                        <div class="avatar"></div>
+                        <div class="info">
+                            <span class="nome">Emanuel Isaac Fernandes</span>
+                            <span class="data">- 2 Dias Atrás</span>
+                        </div>
+                    </div>
+
+                    <div class="texto">
+                      O ambiente é familiar e acolhedor, e o material didático é de alta qualidade.
+                    </div>
+
+                    <div class="acoes">
+                        <!-- Botão curtir com coração -->
+                        <button class="curtir">❤</button>
+                        <!-- Botão responder (poderia abrir uma caixa de texto futuramente) -->
+                        <button class="responder">Responder</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ======== SCRIPT: FUNÇÃO DO BOTÃO CURTIR ======== -->
+    <script>
+        // Seleciona todos os botões de curtir na página
+        document.querySelectorAll('.curtir').forEach(botao => {
+
+            // Adiciona um evento de clique em cada botão
+            botao.addEventListener('click', () => {
+                // Alterna a classe 'curtido' (ativa/desativa a cor vermelha)
+                botao.classList.toggle('curtido');
+                
+                // Exibe no console o estado atual do botão (curtido ou não)
+                console.log(botao.classList.contains('curtido') ? 'Botão curtido!' : 'Curtida removida!');
+            });
+        });
+    </script>
+
+    <!-- Bootstrap JS (necessário para alguns componentes interativos) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>
+
