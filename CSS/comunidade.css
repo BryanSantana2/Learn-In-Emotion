@@ -1,0 +1,40 @@
+body {
+    background-color: #fff9ef;
+}
+
+.header-bar {
+    background-color: #d6c0a8;
+    color: #593327;
+    padding: 8px 12px;
+}
+
+.title-icon {
+    font-size: 20px;
+    margin-right: 6px;
+}
+
+/* Card de perfil */
+.profile-card {
+    background-color: #fbd66f;
+    border-radius: 8px;
+    padding: 10px;
+}
+
+/* Lista de comunidades */
+.community-card {
+    background: #ffffff;
+    border: 1px solid #e2dede;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.community-card:hover {
+    border-color: #7ab4ff;
+    box-shadow: 0 0 4px #7ab4ff;
+    cursor: pointer;
+}
+
+/* Ícones */
+.icon-people, .icon-star {
+    color: #b05050;
+}

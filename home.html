@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=menu" />
+  <title>Home - LIE</title>
+  <link rel="stylesheet" href="CSS/home.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-dxR6LfeYdH1Eo+IYbqkF6kT+nHsJfso6bQrwY7Hfbr4h6K4EAvkG1cDGtGr8C2dD3Xo9rZK+k8EHRZkYPfZ4Ww==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body style="background-color: #ffd445">
+  <nav class="navbar navbar-light py-2" style="background-color: #e5d1b8;">
+    <div class="container-fluid d-flex align-items-center justify-content-between">
+<button class="btn btn-primary" data-bs-toggle="offcanvas" data-bs-target="#sidebarOffcanvas" aria-controls="sidebarOffcanvas"> <span class="material-symbols-outlined"> menu</span></button>
+  <div class="offcanvas offcanvas-start" tabindex="-1" id="sidebarOffcanvas" aria-labelledby="sidebarOffcanvasLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="sidebarOffcanvasLabel">Menu</h5>
+      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <ul class="list-unstyled">
+        <li><a href="#" class="nav-link">Perfil</a></li>
+        <li><a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#modalExample">Favoritos</a></li>
+        <li><a href="#" class="nav-link">Área do Aluno</a></li>
+        <li><a href="#" class="nav-link">Comunidade</a></li>
+        <li><a href="#" class="nav-link">Metrônomo</a></li>
+        <li><a href="#" class="nav-link">Ajuda</a></li>
+        <li><a href="#" class="nav-link">Configuração</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Modal (for 'Favoritos') -->
+  <div class="modal fade" id="modalExample" tabindex="-1" aria-labelledby="modalExampleLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalExampleLabel">Favoritos</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Este é o conteúdo do modal de "Favoritos".
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+          <button type="button" class="btn btn-primary">Salvar alterações</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+      <!-- Barra de pesquisa centralizada -->
+      <form class="flex-grow-1 mx-3" style="max-width: 400px; border-radius: 10px;">
+        <input class="form-control border-0 border-bottom rounded-0" style="background:#fff; color:#7a5c3a;" type="search" placeholder="Pesquisar" aria-label="Pesquisar" />
+      </form>
+
+      <!-- Logo à direita -->
+      <a class="navbar-brand fw-bold text-dark fs-4" href="#" style="color:#7a5c3a;">LIE</a>
+    </div>
+  </nav>
+
+<!-- MENU LATERAL (OFFCANVAS) -->
+<div class="offcanvas offcanvas-start" tabindex="-1" id="menuLateral" aria-labelledby="menuLateralLabel" style="background:#fff; width:260px;">
+  <div class="offcanvas-header border-bottom">
+    <h5 class="offcanvas-title" id="menuLateralLabel">Menu</h5>
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Fechar"></button>
+  </div>
+  <div class="offcanvas-body d-flex flex-column justify-content-between" style="height:100%;">
+    <div>
+      <ul class="list-unstyled mt-3">
+        <li class="mb-4"><i class="fa-solid fa-user me-2"></i>Perfil</li>
+        <li class="mb-4"><i class="fa-solid fa-star me-2"></i>Favoritos</li>
+        <li class="mb-4"><i class="fa-solid fa-book me-2"></i>Área do Aluno</li>
+        <li class="mb-4"><i class="fa-solid fa-users me-2"></i>Comunidade</li>
+        <li class="mb-4"><i class="fa-solid fa-drum me-2"></i>Metrônomo</li>
+        <li class="mb-4"><i class="fa-solid fa-circle-question me-2"></i>Ajuda</li>
+      </ul>
+    </div>
+    <div class="border-top pt-3">
+      <i class="fa-solid fa-gear me-2"></i>Configuração
+    </div>
+  </div>
+</div>
+
+
+
+  <header class="header">
+        <div class="logo">
+            <i class="fa-solid fa-headphones-simple"></i>
+            <span>LIE</span>
+        </div>
+        <nav class="nav">
+            <a href="#">EXPLORAR</a>
+            <a href="#">PLAYLISTS</a>
+        </nav>
+        <div class="search-user">
+            <div class="search-box">
+                <input type="text" placeholder="Pesquisar...">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+            <div class="user-profile">
+                <i class="fa-solid fa-user-circle"></i>
+            </div>
+        </div>
+    </header>
+
+    <main class="content-wrapper">
+        
+        <section class="hero-banner">
+            <div class="hero-text">
+                <h1>LANÇAMENTO EXCLUSIVO: BEATUR - "ONDA ELETRÔNICA"</h1>
+                <button class="btn-primary">OUVIR AGORA</button>
+            </div>
+            </section>
+
+        <section class="section-slider">
+            <h2>FEITO PARA VOCÊ</h2>
+            <div class="cards-container">
+                <div class="card-item">
+                    <img src="https://via.placeholder.com/150x150?text=Playlist+1" alt="Playlist 1">
+                    <p>Playlist da Semana</p>
+                </div>
+                <div class="card-item">
+                    <img src="https://via.placeholder.com/150x150?text=Playlist+2" alt="Playlist 2">
+                    <p>Seus Hits</p>
+                </div>
+                <div class="card-item"><img src="https://via.placeholder.com/150x150?text=Playlist+3" alt="Playlist 3"><p>Novos Sons</p></div>
+                <div class="card-item"><img src="https://via.placeholder.com/150x150?text=Playlist+4" alt="Playlist 4"><p>Rock Clássico</p></div>
+                <div class="card-item"><img src="https://via.placeholder.com/150x150?text=Playlist+5" alt="Playlist 5"><p>Trilha Lo-Fi</p></div>
+                <div class="card-item"><img src="https://via.placeholder.com/150x150?text=Playlist+6" alt="Playlist 6"><p>Pop Hits</p></div>
+                <button class="slider-arrow right-arrow"><i class="fa-solid fa-chevron-right"></i></button>
+            </div>
+        </section>
+
+        <section class="section-slider">
+            <h2>NOVOS LANÇAMENTOS</h2>
+            <div class="cards-container">
+                <div class="card-item album-card">
+                    <img src="https://via.placeholder.com/180x180?text=Album+A" alt="Álbum A">
+                    <p class="title">New Horizon</p>
+                    <p class="artist">The Electrics</p>
+                </div>
+                <div class="card-item album-card"><img src="https://via.placeholder.com/180x180?text=Album+B" alt="Álbum B"><p class="title">Rua Vazio</p><p class="artist">Clube Dub</p></div>
+                <div class="card-item album-card"><img src="https://via.placeholder.com/180x180?text=Album+C" alt="Álbum C"><p class="title">Paranóias</p><p class="artist">Banda X</p></div>
+                <div class="card-item album-card"><img src="https://via.placeholder.com/180x180?text=Album+D" alt="Álbum D"><p class="title">Midnight</p><p class="artist">Tech Sounds</p></div>
+                <div class="card-item album-card"><img src="https://via.placeholder.com/180x180?text=Album+E" alt="Álbum E"><p class="title">Redox</p><p class="artist">Geração Y</p></div>
+            </div>
+        </section>
+
+        <section class="section-genres">
+            <h2>GÊNEROS EM DESTAQUE</h2>
+            <div class="genre-chips">
+                <a href="#" class="chip"><i class="fa-solid fa-compact-disc"></i> POP</a>
+                <a href="#" class="chip"><i class="fa-solid fa-guitar"></i> ROCK</a>
+                <a href="#" class="chip active"><i class="fa-solid fa-headphones"></i> LO-FI</a>
+                <a href="#" class="chip"><i class="fa-solid fa-microphone"></i> MPB</a>
+                <a href="#" class="chip"><i class="fa-solid fa-drum"></i> HIP-HOP</a>
+            </div>
+        </section>
+
+    </main>
+
+    
+
+
+  <!-- ========================================================= -->
+  <!-- BOOTSTRAP JS -->
+  <!-- ========================================================= -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"
+  ></script>
+
+  <style>
+    .navbar {
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+    .navbar .form-control {
+      font-size: 1.1em;
+      border-color: #FFD445;
+    }
+    .offcanvas {
+      box-shadow: 2px 0 8px rgba(0,0,0,0.08);
+    }
+    .offcanvas .fa-solid {
+      color: #7a5c3a;
+      font-size: 1.2em;
+      width: 28px;
+      text-align: center;
+    }
+    .offcanvas-title {
+      color: #7a5c3a;
+      font-weight: 600;
+    }
+    .offcanvas .list-unstyled li {
+      font-size: 1.08rem;
+      cursor: pointer;
+      transition: background 0.2s;
+      padding-left: 8px;
+      border-radius: 6px;
+    }
+    .offcanvas .list-unstyled li:hover {
+      background: #FFD44522;
+    }
+    .offcanvas .border-top {
+      color: #555;
+      font-size: 1.08rem;
+      padding-left: 8px;
+    }
+    @media (max-width: 600px) {
+      .navbar .form-control {
+        max-width: 120px;
+      }
+      .offcanvas {
+        width: 80vw !important;
+      }
+    }
+
+
+
+
+    /* Variáveis de Cores (Dark Mode) */
+:root {
+    --bg-main: #121212;
+    --bg-header: #1a1a1a;
+    --bg-card: #282828;
+    --color-primary: #1ed760; /* Verde de destaque */
+    --color-text-light: #ffffff;
+    --color-text-dim: #b3b3b3;
+}
+
+/* Base Geral */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--bg-main);
+    color: var(--color-text-light);
+    min-height: 100vh;
+    padding-bottom: 90px; /* Espaço para o player fixo */
+}
+
+a {
+    color: var(--color-text-light);
+    text-decoration: none;
+}
+
+/* 1. CABEÇALHO (HEADER) FIXO */
+.header {
+    background-color: var(--bg-header);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.logo span {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--color-primary);
+}
+.logo i {
+    color: var(--color-primary);
+    margin-right: 5px;
+}
+
+.nav a {
+    margin: 0 15px;
+    font-weight: bold;
+    color: var(--color-text-dim);
+    transition: color 0.3s;
+}
+.nav a:hover {
+    color: var(--color-text-light);
+}
+
+.search-user {
+    display: flex;
+    align-items: center;
+}
+
+.search-box {
+    position: relative;
+    margin-right: 20px;
+}
+.search-box input {
+    background-color: #ffffff;
+    border: none;
+    border-radius: 50px;
+    padding: 8px 15px 8px 40px;
+    color: var(--bg-main);
+    width: 250px;
+}
+.search-box i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--bg-main);
+}
+
+.user-profile i {
+    font-size: 30px;
+    color: var(--color-text-dim);
+    cursor: pointer;
+}
+
+/* CONTEÚDO PRINCIPAL */
+.content-wrapper {
+    padding: 20px 30px;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+/* 2. BANNER DE DESTAQUE (HERO) */
+.hero-banner {
+    height: 350px;
+    background: linear-gradient(to right, rgba(0,0,0,0.8), rgba(0,0,0,0.2)),
+                url('https://via.placeholder.com/1200x350?text=Artista+no+Palco') no-repeat center center/cover;
+    border-radius: 8px;
+    margin-bottom: 40px;
+    display: flex;
+    align-items: flex-end;
+    padding: 30px;
+    position: relative;
+}
+
+.hero-text h1 {
+    font-size: 48px;
+    margin-bottom: 15px;
+}
+
+.btn-primary {
+    background-color: var(--color-primary);
+    color: var(--bg-main);
+    border: none;
+    padding: 10px 30px;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+.btn-primary:hover {
+    transform: scale(1.05);
+}
+
+/* 3. SEÇÕES DE CARROSSEL (SLIDERS) */
+.section-slider {
+    margin-bottom: 40px;
+}
+
+.section-slider h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.cards-container {
+    display: flex;
+    overflow-x: auto; /* Permite scroll horizontal */
+    gap: 20px;
+    padding-bottom: 10px;
+    position: relative;
+}
+/* Estilo para remover a barra de rolagem no webkit (opcional) */
+.cards-container::-webkit-scrollbar {
+    display: none;
+}
+.cards-container {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+.card-item {
+    min-width: 160px;
+    max-width: 160px;
+    background-color: var(--bg-card);
+    padding: 15px;
+    border-radius: 6px;
+    transition: background-color 0.3s;
+    cursor: pointer;
+}
+.card-item:hover {
+    background-color: #404040;
+}
+
+.card-item img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.card-item p {
+    font-size: 14px;
+    color: var(--color-text-dim);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.card-item p.title {
+    color: var(--color-text-light);
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+/* Seta do slider (Mockup) */
+.slider-arrow {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--bg-main);
+    border: none;
+    color: var(--color-text-light);
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+
+/* 4. GÊNEROS EM DESTAQUE */
+.section-genres {
+    margin-top: 40px;
+}
+.genre-chips {
+    display: flex;
+    gap: 15px;
+}
+.chip {
+    background-color: var(--bg-card);
+    padding: 8px 15px;
+    border-radius: 50px;
+    font-size: 14px;
+    color: var(--color-text-light);
+    transition: background-color 0.3s;
+    display: flex;
+    align-items: center;
+}
+.chip i {
+    margin-right: 8px;
+    color: var(--color-text-dim);
+}
+.chip.active {
+    background-color: var(--color-primary);
+    color: var(--bg-main);
+    font-weight: bold;
+}
+.chip.active i {
+    color: var(--bg-main);
+}
+.chip:hover {
+    background-color: #535353;
+}
+
+/* 5. PLAYER DE ÁUDIO FIXO (FOOTER) */
+.audio-player-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--bg-header);
+    height: 90px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+    border-top: 1px solid #000;
+    z-index: 1000;
+}
+
+.track-info {
+    display: flex;
+    align-items: center;
+    width: 25%;
+}
+.track-cover {
+    width: 50px;
+    height: 50px;
+    border-radius: 4px;
+    margin-right: 15px;
+}
+.track-details .track-title {
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--color-text-light);
+}
+.track-details .track-artist {
+    font-size: 12px;
+    color: var(--color-text-dim);
+}
+
+.player-controls {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    width: 25%;
+    justify-content: center;
+}
+.control-icon {
+    font-size: 18px;
+    color: var(--color-text-dim);
+    cursor: pointer;
+    transition: color 0.2s;
+}
+.control-icon:hover {
+    color: var(--color-text-light);
+}
+
+.play-pause-btn {
+    background-color: var(--color-text-light);
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.play-pause-btn i {
+    color: var(--bg-main);
+    font-size: 18px;
+}
+
+.progress-bar-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 35%;
+}
+
+.progress-bar {
+    background-color: #535353;
+    height: 4px;
+    flex-grow: 1;
+    border-radius: 2px;
+    cursor: pointer;
+}
+.progress {
+    height: 100%;
+    background-color: var(--color-primary);
+    border-radius: 2px;
+}
+
+.current-time, .total-time {
+    font-size: 12px;
+    color: var(--color-text-dim);
+}
+
+.volume-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 15%;
+    justify-content: flex-end;
+}
+.volume-bar {
+    background-color: #535353;
+    height: 4px;
+    width: 80px;
+    border-radius: 2px;
+    cursor: pointer;
+}
+.volume-level {
+    height: 100%;
+    background-color: var(--color-primary);
+    border-radius: 2px;
+}
+
+  </style>
+
+</body>
+</html>
