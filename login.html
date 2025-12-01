@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Learn In Emotion</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        /* Configuração do Fundo com Imagem */
+        body {
+            /* Imagem de fundo cobrindo toda a tela */
+            background: url('Imagens/Fundo.png') no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            position: relative;
+        }
+
+        /* Máscara escura para destacar o conteúdo sobre a imagem */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            z-index: -1;
+        }
+
+        /* Container do Login */
+        .login-container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            text-align: center;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .logo img {
+            max-width: 150px;
+            margin-bottom: 20px;
+        }
+
+        /* Campos de Entrada */
+        .input-field {
+            width: 100%;
+            padding: 12px 15px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            box-sizing: border-box;
+            outline: none;
+        }
+
+        .input-field:focus {
+            border-color: #F4A22D;
+            box-shadow: 0 0 5px rgba(244, 162, 45, 0.5);
+        }
+
+        /* Botões Principais (Entrar, Inscreva-se, Enviar Cadastro) */
+        .login-btn {
+            background-color: #F4A22D;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 20px;
+            width: 100%;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        .login-btn:hover {
+            background-color: #d6891f;
+        }
+
+        /* Links e Textos */
+        .signup-text {
+            margin-top: 20px;
+            color: #555;
+        }
+        
+        .signup-text a {
+            text-decoration: none;
+        }
+
+        .social-buttons {
+            margin-top: 20px;
+        }
+
+        .social-buttons img {
+            width: 40px;
+            margin: 0 10px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .social-buttons img:hover {
+            transform: scale(1.1);
+        }
+
+        /* Modal Personalizado */
+        .modal-content {
+            border-radius: 20px;
+            border: none;
+        }
+        
+        .modal-header {
+            border-bottom: none;
+        }
+
+        .form-control {
+            border-radius: 20px;
+            padding: 10px 15px;
+        }
+        
+        /* Ajuste para o botão dentro do modal ser igual aos outros */
+        .btn-modal-custom {
+            background-color: #F4A22D;
+            color: white;
+            border-radius: 20px;
+            font-weight: bold;
+            border: none;
+        }
+        .btn-modal-custom:hover {
+            background-color: #d6891f;
+            color: white;
+        }
+        
+        a { color: #F4A22D; text-decoration: none; }
+    </style>
+</head>
+
+<body>
+    <div class="login-container">
+        <div class="logo">
+            <!-- Caso não tenha a imagem logo.png, o alt será exibido. Se tiver a imagem, ela aparecerá. -->
+            <img src="Imagens/Logo.png" alt="Logo LIE"> 
+            <h2 style="color: #333; margin-bottom: 20px;">Bem-vindo</h2>
+        </div>
+
+        <form action="PHP/auth.php" method="POST">
+            <input type="email" name="username" placeholder="Email" class="input-field" required>
+            <input type="password" name="password" placeholder="Senha" class="input-field" required>
+            <button type="submit" class="login-btn">Entrar</button>
+        </form>
+
+        <div class="signup-text">
+            <p style="margin-bottom: 10px;">Não tem conta?</p>
+            <a href="#" data-bs-toggle="modal" data-bs-target="#cadastroModal">
+                <button type="button" class="login-btn">Inscreva-se</button>
+            </a>
+            
+            <p style="margin-top: 20px; font-size: 0.9rem;">ou entre com</p>
+        </div>
+
+        <div class="social-buttons">
+            <!-- Alterado onclick para abrir o modal de contato -->
+            <a href="#" data-bs-toggle="modal" data-bs-target="#contactModal">
+                <img src="Imagens/Twitter.png" alt="Twitter" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\'fab fa-twitter fa-2x\' style=\'color:#F4A22D; margin:0 10px;\'></i>'">
+            </a>
+            <a href="#" data-bs-toggle="modal" data-bs-target="#contactModal">
+                <img src="Imagens/Google.png" alt="Google" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\'fab fa-google fa-2x\' style=\'color:#F4A22D; margin:0 10px;\'></i>'">
+            </a>
+            <a href="#" data-bs-toggle="modal" data-bs-target="#contactModal">
+                <img src="Imagens/Instagram.png" alt="Instagram" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\'fab fa-instagram fa-2x\' style=\'color:#F4A22D; margin:0 10px;\'></i>'">
+            </a>
+        </div>
+    </div>
+
+    <!-- Modal de Cadastro -->
+    <div class="modal fade" id="cadastroModal" tabindex="-1" aria-labelledby="cadastroModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content p-4">
+                <h5 class="text-center mb-3 fw-bold" style="color: #333;">Criar Conta</h5>
+                <form action="PHP/processa_cadastro.php" method="POST">
+                    <input type="text" id="nome" name="usuario_nome" class="form-control mb-3" placeholder="Nome Completo" required>
+                    <input type="email" id="email" name="usuario_email" class="form-control mb-3" placeholder="E-mail" required>
+                    
+                    <div class="row">
+                        <div class="col">
+                            <input type="password" id="senha" name="usuario_senha" class="form-control mb-3" placeholder="Senha" required>
+                        </div>
+                    </div>
+                    
+                    <div class="row mb-3">
+                        <div class="col">
+                            <input type="date" id="data_nasc" name="data_nasc" class="form-control" placeholder="Data de Nascimento" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-check text-start mb-3">
+                        <input class="form-check-input" type="checkbox" id="termos" required>
+                        <label class="form-check-label small text-muted" for="termos">
+                            Li e aceito os <a href="#" data-bs-toggle="modal" data-bs-target="#termosModal" style="text-decoration: underline;">termos de uso</a> do Learn In Emotion
+                        </label>
+                    </div>
+                    
+                    <!-- Botão com mesmo estilo do Entrar -->
+                    <button type="submit" class="login-btn mb-2">Enviar Cadastro</button>
+                    
+                    <p class="text-center mt-2">
+                        <a href="#" class="small fw-bold" data-bs-dismiss="modal" style="color: #F4A22D;">Ou Acesse Sua Conta</a>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Termos de Uso (NOVO) -->
+    <div class="modal fade" id="termosModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content p-3">
+                <div class="modal-header border-bottom">
+                    <h5 class="modal-title fw-bold" style="color: #333;">Termos de Uso</h5>
+                    <!-- Botão X fecha o modal de termos e volta para o cadastro -->
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-start" style="max-height: 300px; overflow-y: auto;">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <p>Curabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius, turpis et commodo pharetra, est eros bibendum elit, nec luctus magna felis sollicitudin mauris. Integer in mauris eu nibh euismod gravida.</p>
+                    <p>Duis ac tellus et risus vulputate vehicula. Donec lobortis risus a elit. Etiam tempor. Ut ullamcorper, ligula eu tempor congue, eros est euismod turpis, id tincidunt sapien risus a quam. Maecenas fermentum consequat mi. Donec fermentum. Pellentesque malesuada nulla a mi. Duis sapien sem, aliquet nec, commodo eget, consequat quis, neque.</p>
+                </div>
+                <div class="modal-footer border-top-0 justify-content-center">
+                    <button type="button" class="login-btn py-2 w-50" data-bs-toggle="modal" data-bs-target="#cadastroModal">Voltar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Contato Indisponível -->
+    <div class="modal fade" id="contactModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content p-4 text-center">
+                <div class="mb-3">
+                    <i class="fas fa-exclamation-circle fa-3x" style="color: #F4A22D;"></i>
+                </div>
+                <h5 class="fw-bold mb-2" style="color: #333;">Aviso</h5>
+                <p class="text-muted">Contato indisponível</p>
+                <button type="button" class="login-btn w-50 mx-auto mt-2" data-bs-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

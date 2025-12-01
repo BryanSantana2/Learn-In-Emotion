@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn In Emotion - Cifra: Epitáfio (Titãs)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style type="text/tailwindcss">
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f7f7;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #cifra-content {
+            background-color: #1f2937;
+            color: #f3f4f6;
+            font-family: monospace;
+            white-space: pre-wrap;
+            line-height: 1.6;
+            font-size: 1.1rem;
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+        }
+
+        .chord {
+            color: #fbbf24;
+            font-weight: bold;
+            display: inline-block;
+        }
+
+        /* Agora o @apply funcionará corretamente */
+        .transposer-btn {
+            @apply px-3 py-1 bg-amber-100 text-amber-800 font-bold rounded-full hover:bg-amber-200 transition duration-150;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50">
+
+    <header class="bg-white shadow-lg sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            
+            <h1 class="text-3xl font-extrabold text-amber-600 tracking-wider">
+                <i class="fas fa-music mr-2"></i> Visualizador
+            </h1>
+
+            <button onclick="history.back()"
+                class="px-4 py-2 bg-gray-100 text-gray-700 font-semibold rounded-full hover:bg-gray-200 transition duration-150 flex items-center shadow-sm">
+                <i class="fas fa-arrow-left mr-2"></i> Voltar
+            </button>
+        </div>
+    </header>
+
+    <main class="flex-grow max-w-5xl mx-auto py-8 px-4 sm:px-6 lg:px-8 w-full">
+
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 bg-white p-6 rounded-xl shadow-md border-t-4 border-amber-500">
+            <div>
+                <h2 class="text-4xl font-extrabold text-gray-900 mb-1">Epitáfio</h2>
+                <p class="text-xl font-medium text-gray-600 mb-3">Titãs</p>
+                <p class="text-sm text-gray-500">Tom Original: <span id="current-key" class="font-bold text-gray-700">G</span> | Simplificada</p>
+            </div>
+        
+        </div>
+
+        <div class="bg-white p-4 rounded-xl shadow-md mb-6 flex flex-col sm:flex-row justify-between items-center space-y-3 sm:space-y-0">
+            
+            <div class="flex items-center space-x-3">
+                <span class="font-semibold text-gray-700">Transpor Tom:</span>
+                <button class="transposer-btn" onclick="transpose(-1)">
+                    <i class="fas fa-minus mr-1"></i> -1 Semitom
+                </button>
+                <button class="transposer-btn" onclick="transpose(1)">
+                    +1 Semitom <i class="fas fa-plus ml-1"></i>
+                </button>
+            </div>
+
+            <div class="flex items-center space-x-3">
+                <span class="font-semibold text-gray-700">Auto-Scroll:</span>
+                <input type="range" min="0" max="100" value="0" id="scroll-speed" 
+                    class="w-32 h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer range-lg" 
+                    oninput="updateScrollSpeed(this.value)">
+                <span id="scroll-value" class="text-sm text-gray-600 w-8 text-right">Off</span>
+            </div>
+        </div>
+        
+        <div id="cifra-content">
+            (Introdução) <span class="chord" data-key-index="9">Am</span>  <span class="chord" data-key-index="2">C</span>  <span class="chord" data-key-index="4">E</span>  <span class="chord" data-key-index="7">G</span>
+            
+            (Verso 1)
+            <span class="chord" data-key-index="7">G</span> <span class="chord" data-key-index="9">Am</span>
+            Devia ter amado mais
+            <span class="chord" data-key-index="2">C</span> <span class="chord" data-key-index="6">F</span>
+            Ter chorado mais, ter visto o sol nascer
+            <span class="chord" data-key-index="7">G</span> <span class="chord" data-key-index="9">Am</span>
+            Devia ter me importado menos
+            <span class="chord" data-key-index="2">C</span> <span class="chord" data-key-index="7">G</span>
+            Com problemas pequenos
+
+            (Verso 2)
+            <span class="chord" data-key-index="7">G</span> <span class="chord" data-key-index="9">Am</span>
+            Devia ter corrido mais
+            <span class="chord" data-key-index="2">C</span> <span class="chord" data-key-index="6">F</span>
+            Ter gastado mais, ter feito o que eu queria fazer
+            <span class="chord" data-key-index="7">G</span> <span class="chord" data-key-index="9">Am</span>
+            Devia ter saído mais
+            <span class="chord" data-key-index="2">C</span> <span class="chord" data-key-index="7">G</span>
+            Ter tentado ligar mais vezes
+
+            (Pré-Refrão)
+            <span class="chord" data-key-index="2">C</span>
+            Para quem não me ligou
+            <span class="chord" data-key-index="4">E</span>
+            Para quem não me atendeu
+            <span class="chord" data-key-index="9">Am</span>
+            O que a vida me deu
+            <span class="chord" data-key-index="6">F</span>
+            Eu não dou mais
+
+            (Refrão)
+            <span class="chord" data-key-index="2">C</span>
+            Eu só queria ter
+            <span class="chord" data-key-index="7">G</span>
+            Tido mais tempo
+            <span class="chord" data-key-index="9">Am</span>
+            Tempo para ser o que eu
+            <span class="chord" data-key-index="4">E</span>
+            Não sou, mas o tempo
+            <span class="chord" data-key-index="6">F</span>
+            Não para, não
+            <span class="chord" data-key-index="2">C</span>
+            Não para, não
+            <span class="chord" data-key-index="7">G</span>
+            Eu só queria ter
+            <span class="chord" data-key-index="9">Am</span>
+            Tido mais tempo...
+            
+            <br>
+            <span class="text-lg font-bold text-amber-500 block mb-2">Tablatura (Riff Principal)</span>
+            <div class="text-sm">
+                E|--3--3--3--3--3--|--5--5--5--5--5--|--7--7--7--7--7--|--5--5--5--5--5--|
+                B|--3--3--3--3--3--|--5--5--5--5--5--|--8--8--8--8--8--|--5--5--5--5--5--|
+                G|--4--4--4--4--4--|--5--5--5--5--5--|--9--9--9--9--9--|--5--5--5--5--5--|
+                D|--5--5--5--5--5--|--7--7--7--7--7--|--9--9--9--9--9--|--7--7--7--7--7--|
+                A|-----------------|-----------------|--7--------------|--7--------------|
+                E|-----------------|-----------------|-----------------|--5--------------|
+            </div>
+        </div>
+        
+    </main>
+
+    <footer class="mt-auto bg-gray-800 text-white py-6 text-center">
+        <p class="text-sm text-gray-400">&copy; 2025 Learn In EMotion. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        const notes = [
+            "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"
+        ];
+        
+        let currentTransposition = 0;
+        const totalNotes = notes.length;
+
+        function getNewKey(originalKey, steps) {
+            const match = originalKey.match(/^([A-G][#b]?)(.*)$/);
+            if (!match) return originalKey;
+
+            const baseNote = match[1];
+            const modifier = match[2];
+
+            let currentIndex = notes.indexOf(baseNote);
+            if (currentIndex === -1) {
+                const enharmonics = { "Bb": "A#", "Db": "C#", "Eb": "D#", "Gb": "F#", "Ab": "G#" };
+                const normalizedBaseNote = enharmonics[baseNote] || baseNote;
+                currentIndex = notes.indexOf(normalizedBaseNote);
+                if (currentIndex === -1) return originalKey;
+            }
+
+            let newIndex = (currentIndex + steps) % totalNotes;
+            if (newIndex < 0) {
+                newIndex += totalNotes;
+            }
+
+            return notes[newIndex] + modifier;
+        }
+
+        function transpose(steps) {
+            currentTransposition += steps;
+
+            const chords = document.querySelectorAll('.chord');
+            chords.forEach(chordElement => {
+                const originalKey = chordElement.getAttribute('data-original-key') || chordElement.textContent;
+                
+                if (!chordElement.getAttribute('data-original-key')) {
+                    chordElement.setAttribute('data-original-key', originalKey);
+                }
+
+                const originalIndex = notes.indexOf(originalKey.match(/^([A-G][#b]?)(.*)$/)?.[1] || originalKey);
+                if (originalIndex !== -1) {
+                    const stepsFromOriginal = (originalIndex + currentTransposition) % totalNotes;
+                    const newChord = getNewKey(originalKey, stepsFromOriginal - originalIndex);
+                    chordElement.textContent = newChord;
+                }
+            });
+
+            const originalBaseKey = notes.indexOf('G'); 
+            const newBaseKeyIndex = (originalBaseKey + currentTransposition) % totalNotes;
+            const newBaseKey = notes[newBaseKeyIndex < 0 ? newBaseKeyIndex + totalNotes : newBaseKeyIndex];
+            document.getElementById('current-key').textContent = newBaseKey;
+        }
+
+        transpose(0);
+
+        let isFavorited = false;
+
+        function toggleFavorite() {
+            const icon = document.getElementById('favorite-icon');
+            isFavorited = !isFavorited;
+
+            if (isFavorited) {
+                icon.classList.remove('far');
+                icon.classList.add('fas', 'text-amber-500');
+
+            } else {
+                icon.classList.remove('fas', 'text-amber-500');
+                icon.classList.add('far');
+            }
+        }
+
+        let scrollInterval = null;
+
+        function updateScrollSpeed(value) {
+            const scrollValueDisplay = document.getElementById('scroll-value');
+            const speed = parseInt(value);
+
+            if (scrollInterval) {
+                clearInterval(scrollInterval);
+                scrollInterval = null;
+            }
+
+            if (speed > 0) {
+                const intervalMs = Math.max(100 - speed, 10);
+                
+                scrollInterval = setInterval(() => {
+                    window.scrollBy(0, 1);
+                }, intervalMs);
+
+                scrollValueDisplay.textContent = `${speed}%`;
+            } else {
+                scrollValueDisplay.textContent = `Off`;
+            }
+        }
+    </script>
+</body>
+</html>
